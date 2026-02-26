@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DddPrueba\Store\Product\Store\Product\Application\SearchByCriteria;
+namespace DddPrueba\Store\Product\Application\SearchByCriteria;
 
 use DddPrueba\Store\Product\Store\Product\Domain\ProductRepository;
 use Dba\DddSkeleton\Shared\Domain\Criteria\Criteria;

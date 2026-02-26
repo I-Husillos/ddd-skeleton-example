@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+namespace DddPrueba\Store\Product\Application\Find;
+
+use DddPrueba\Store\Product\Application\Response\ProductResponse;
+use DddPrueba\Store\Product\Domain\Product;
+use DddPrueba\Store\Product\Domain\ProductId;
+use DddPrueba\Store\Product\Domain\ProductRepository;
+
+final class FindProductQueryHandler
+{
+    public function __construct(private readonly ProductRepository $repository) {}
+
+    public function __invoke(FindProductQuery $query): ?ProductResponse
+    {
+        $id = new ProductId($query->id());
+        $entity = $this->repository->find($id);
+
+        return $entity ? ProductResponse::fromAggregate($entity) : null;
+    }
+}

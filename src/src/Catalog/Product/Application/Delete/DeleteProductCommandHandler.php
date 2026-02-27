@@ -13,6 +13,6 @@ final class DeleteProductCommandHandler
 
     public function __invoke(DeleteProductCommand $command): void
     {
-        $this->repository->delete(new ProductId($command->id()));
+        $this->repository->remove(new ProductId($command->id()));
     }
 }

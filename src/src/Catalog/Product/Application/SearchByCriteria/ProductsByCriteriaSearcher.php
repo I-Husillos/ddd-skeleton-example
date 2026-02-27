@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace DddPrueba\Catalog\Product\Catalog\Product\Application\SearchByCriteria;
-
-use DddPrueba\Catalog\Product\Catalog\Product\Domain\ProductRepository;
+namespace DddPrueba\Catalog\Product\Application\SearchByCriteria;
+use DddPrueba\Catalog\Product\Domain\ProductRepository;
 use Dba\DddSkeleton\Shared\Domain\Criteria\Criteria;
 use Dba\DddSkeleton\Shared\Domain\Criteria\Filters;
 use Dba\DddSkeleton\Shared\Domain\Criteria\Order;

@@ -24,6 +24,12 @@ final class UpdateProductCommandHandler
         // Apply updates
         // $product->rename(new ProductName($command->name()));
 
+        $product->update(
+            $command->name() !== null ? new ProductName($command->name()) : null,
+            $command->price(),
+            $command->description()
+        );
+
         $this->repository->save($product);
     }
 }

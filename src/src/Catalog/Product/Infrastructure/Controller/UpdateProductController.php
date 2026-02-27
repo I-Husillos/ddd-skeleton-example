@@ -17,7 +17,9 @@ final class UpdateProductController
     {
         $command = new UpdateProductCommand(
             $id,
-            $request->input('name') // Adjust arguments as needed
+            $request->input('name'), // Adjust arguments as needed
+            $request->input('price'),
+            $request->input('description')
         );
 
         ($this->handler)($command);

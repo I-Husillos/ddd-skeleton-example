@@ -16,8 +16,9 @@ final class FindProductQueryHandler
     public function __invoke(FindProductQuery $query): ?ProductResponse
     {
         $id = new ProductId($query->id());
-        $entity = $this->repository->find($id);
+        $entity = $this->repository->search($id);
 
-        return $entity ? ProductResponse::fromAggregate($entity) : null;
+        //return $entity ? ProductResponse::fromAggregate($entity) : null;
+         return null === $entity ? null : ProductResponse::fromAggregate($entity);
     }
 }

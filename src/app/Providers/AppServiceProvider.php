@@ -2,9 +2,8 @@
 
 namespace App\Providers;
 
-use DddPrueba\Store\Product\Domain\Product;
-use DddPrueba\Store\Product\Domain\ProductRepository;
-use DddPrueba\Store\Product\Infrastructure\Persistence\EloquentProductRepository;
+use DddPrueba\Catalog\Product\Domain\ProductRepository;
+use DddPrueba\Catalog\Product\Infrastructure\Persistence\EloquentProductRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

@@ -17,7 +17,9 @@ final class CreateProductController
     {
         $command = new CreateProductCommand(
             $request->input('id'),
-            $request->input('name')
+            $request->input('name'),
+            (float) $request->input('price'),
+            (string) $request->input('description')
         );
 
         ($this->handler)($command);

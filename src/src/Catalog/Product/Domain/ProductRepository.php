@@ -10,7 +10,7 @@ interface ProductRepository
 {
     public function save(Product $model): void;
 
-    public function delete(ProductId $id): void;
+    public function remove(ProductId $id): void;
 
     public function search(ProductId $id): ?Product;
 

@@ -22,9 +22,12 @@ final class EloquentProductRepository extends EloquentRepository implements Prod
 
     public function save(Product $product): void
     {
+        $data = $product->toPrimitives();
+        $id = $product->id()->value();
+        unset($data['id']); // quitamos el id del array de datos para evitar conflictos con el método updateOrCreate, porque este método espera que el id se pase como parte de la condición de búsqueda, no como parte de los datos a actualizar o crear
         $this->updateOrCreate(
-            ['id' => $product->id()->value()],
-            $product->toPrimitives()
+            ['id' => $id],
+            $data
         );
     }
 
@@ -37,6 +40,10 @@ final class EloquentProductRepository extends EloquentRepository implements Prod
     public function search(ProductId $id): ?Product
     {
         $model = $this->model->find($id->value());
+
+        if (!$model) {
+            return null;
+        }
 
         return Product::fromPrimitives($model->toArray());
     }

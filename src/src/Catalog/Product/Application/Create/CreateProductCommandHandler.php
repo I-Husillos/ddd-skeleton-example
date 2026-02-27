@@ -8,6 +8,7 @@ use DddPrueba\Catalog\Product\Domain\Product;
 use DddPrueba\Catalog\Product\Domain\ProductId;
 use DddPrueba\Catalog\Product\Domain\ProductName;
 use DddPrueba\Catalog\Product\Domain\ProductRepository;
+use Illuminate\Support\Str;
 
 final class CreateProductCommandHandler
 {
@@ -15,7 +16,7 @@ final class CreateProductCommandHandler
 
     public function __invoke(CreateProductCommand $command): void
     {
-        $id = new ProductId($command->id());
+        $id = new ProductId(Str::uuid()->toString());
         $name = new ProductName($command->name());
         $price = $command->price();
         $description = $command->description();
